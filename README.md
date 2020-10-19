@@ -12,7 +12,7 @@ It's excellent that a defense exists, but it's unfortunate that the web places t
 
 ## A Proposal
 
-**In the absence of an explicit header, documents' [cross-origin opener policy](https://html.spec.whatwg.org/multipage/dom.html#concept-document-coop) should default to `[same-origin-allow-popups](https://html.spec.whatwg.org/multipage/origin.html#coop-same-origin-allow-popups)`, rather than `[unsafe-none](https://html.spec.whatwg.org/multipage/origin.html#coop-unsafe-none)`**. This will have the effect of closing the window handle returned when a cross-origin document is opened via `window.open`, and disowning the opener of the newly created window.
+**In the absence of an explicit header, documents' [cross-origin opener policy](https://html.spec.whatwg.org/multipage/dom.html#concept-document-coop) should default to [`same-origin-allow-popups`](https://html.spec.whatwg.org/multipage/origin.html#coop-same-origin-allow-popups)`, rather than [`unsafe-none`](https://html.spec.whatwg.org/multipage/origin.html#coop-unsafe-none)**. This will have the effect of closing the window handle returned when a cross-origin document is opened via `window.open`, and disowning the opener of the newly created window.
 
 Those few services which intend to maintain that relationship when opened may easily do so by explicitly declaring a cross-origin opener policy of `unsafe-none`. This will expose them to the risks discussed above, but they're choosing that risk intentionally in order to provide some service or obtain some information. They can reduce this risk by examining the incoming request, perhaps making decisions based upon request characteristics revealed in [Fetch Metadata](https://www.w3.org/TR/fetch-metadata/) headers, the user's cookies, and so on.
 
